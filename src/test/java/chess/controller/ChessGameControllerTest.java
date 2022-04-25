@@ -16,7 +16,6 @@ import chess.dto.GameStatus;
 import chess.service.ChessGameService;
 import com.github.jknack.handlebars.springmvc.HandlebarsViewResolver;
 import java.util.Collections;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -50,14 +49,12 @@ class ChessGameControllerTest {
     @MockBean
     private ChessGameService chessGameService;
 
-    private int chessGameId;
+    private int chessGameId = 1; // 다른 테스트를 깨트리지 않기 위한 임시 변수
 
-    @BeforeEach
-    void setUp() {
-        chessGameId = chessGameService.create("hoho");
-        chessGameService.getOrSaveChessGame(chessGameId);
-    }
 
+    /**
+     * 통과하고 싶은 테스트
+     */
     @Test
     @DisplayName("체스 게임 방 접속")
     void chessGame() throws Exception {
